@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>debian on Joyace</title>
+    <link>https://joyace.cc/tags/debian/</link>
+    <description>Recent content in debian on Joyace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 May 2019 16:09:50 +0800</lastBuildDate>
+    
+	<atom:link href="https://joyace.cc/tags/debian/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DebianUbuntu 时区和自动校时设置</title>
+      <link>https://joyace.cc/post/debian-verify-time/</link>
+      <pubDate>Mon, 06 May 2019 16:09:50 +0800</pubDate>
+      
+      <guid>https://joyace.cc/post/debian-verify-time/</guid>
+      <description>一、设置服务器时区 如果是美国VPS，那么时区要首先设置，不然哪怕再精准的时间也是白搭。 1 2 # 图形化设置时区 dpkg-reconfigure tzdata 二、设置时间同步服务器 方法一：</description>
+    </item>
+    
+  </channel>
+</rss>

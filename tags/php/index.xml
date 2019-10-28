@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>php on Joyace</title>
+    <link>https://joyace.cc/tags/php/</link>
+    <description>Recent content in php on Joyace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 25 Jan 2019 23:57:50 +0800</lastBuildDate>
+    
+	<atom:link href="https://joyace.cc/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Debian 安装 php7.0 与 sqlite3</title>
+      <link>https://joyace.cc/post/debian-install-php7.0-sqlite3/</link>
+      <pubDate>Fri, 25 Jan 2019 23:57:50 +0800</pubDate>
+      
+      <guid>https://joyace.cc/post/debian-install-php7.0-sqlite3/</guid>
+      <description>安装 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 #Debian 8系统 #添加源 echo &amp;#34;deb http://packages.dotdeb.org jessie all&amp;#34; | tee --append /etc/apt/sources.list echo &amp;#34;deb-src http://packages.dotdeb.org jessie all&amp;#34; | tee --append /etc/apt/sources.list #添加key wget --no-check-certificate https://www.dotdeb.org/dotdeb.gpg apt-key add dotdeb.gpg #更新系统 apt-get update -y #安装PH</description>
+    </item>
+    
+  </channel>
+</rss>

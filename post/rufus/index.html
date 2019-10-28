@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>rufus制作U盘启动 - Joyace</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Joyace" /><meta name="description" content="这里介绍一下如何安装微软原版win10。
+首先准备个U盘 （至少8g），先把U盘里面的重要文件备份一下，制作启动盘会格式化U盘。
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+<meta name="robots" content="">
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://joyace.cc/post/rufus/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.58b28b82.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="rufus制作U盘启动" />
+<meta property="og:description" content="这里介绍一下如何安装微软原版win10。
+
+首先准备个U盘 （至少8g），先把U盘里面的重要文件备份一下，制作启动盘会格式化U盘。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://joyace.cc/post/rufus/" />
+<meta property="article:published_time" content="2019-04-01T00:57:50&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-01T00:57:50&#43;08:00"/>
+
+<meta itemprop="name" content="rufus制作U盘启动">
+<meta itemprop="description" content="这里介绍一下如何安装微软原版win10。
+
+首先准备个U盘 （至少8g），先把U盘里面的重要文件备份一下，制作启动盘会格式化U盘。">
+
+
+<meta itemprop="datePublished" content="2019-04-01T00:57:50&#43;08:00" />
+<meta itemprop="dateModified" content="2019-04-01T00:57:50&#43;08:00" />
+<meta itemprop="wordCount" content="455">
+
+
+
+<meta itemprop="keywords" content="win10,系统," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="rufus制作U盘启动"/>
+<meta name="twitter:description" content="这里介绍一下如何安装微软原版win10。
+
+首先准备个U盘 （至少8g），先把U盘里面的重要文件备份一下，制作启动盘会格式化U盘。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Joyace</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/share/">
+        <li class="mobile-menu-item">分享</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/%E5%85%B3%E4%BA%8E/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Joyace</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/share/">分享</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">rufus制作U盘启动</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-01 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"> 折腾记录 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#第1步-下载镜像">第1步 下载镜像：</a>
+<ul>
+<li><a href="#下载地址">下载地址：</a></li>
+</ul></li>
+<li><a href="#第2步-下载rufus">第2步 下载rufus：</a></li>
+<li><a href="#第3步-格式化u盘为ntfs格式">第3步 格式化U盘为NTFS格式：</a></li>
+<li><a href="#第4步-打开rufus制作u盘启动">第4步 打开rufus制作U盘启动：</a></li>
+<li><a href="#第5步-开始安装">第5步 开始安装</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>这里介绍一下如何安装微软原版win10。</p>
+
+<p>首先准备个<strong>U盘</strong> （至少8g），先把U盘里面的重要文件备份一下，制作启动盘会格式化U盘。</p>
+
+<h3 id="第1步-下载镜像">第1步 下载镜像：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">文件名：cn_windows_10_business_editions_version_1809_updated_march_2019_x64_dvd_0f05144b.iso
+SHA1  5d6f2eab7c66121253224f77a4aa2f4161a2daca
+文件大小  4.91GB
+发布时间  2019-03-29</pre></td></tr></table>
+</div>
+</div>
+<h4 id="下载地址">下载地址：</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ed2k://|file|cn_windows_10_business_editions_version_1809_updated_march_2019_x64_dvd_0f05144b.iso|5268158464|1188AC05C1E0FC792FFB57F39F6A5FF3|/</pre></td></tr></table>
+</div>
+</div>
+<p><strong>浏览器无法下载，需要复制到迅雷中下载。速度慢的话可以用百度网盘离线下载，然后再下载到本地。</strong></p>
+
+<h3 id="第2步-下载rufus">第2步 下载rufus：</h3>
+
+<p>下载地址：<a href="https://github.com/pbatard/rufus/releases/download/v3.5/rufus-3.5.exe">https://github.com/pbatard/rufus/releases/download/v3.5/rufus-3.5.exe</a></p>
+
+<h3 id="第3步-格式化u盘为ntfs格式">第3步 格式化U盘为NTFS格式：</h3>
+
+<p><img src="https://ws3.sinaimg.cn/large/006UnPovly1g1mkbiter5j308k0gk74h.jpg" alt="image" /></p>
+
+<h3 id="第4步-打开rufus制作u盘启动">第4步 打开rufus制作U盘启动：</h3>
+
+<p>设置如图：
+<img src="https://ws2.sinaimg.cn/large/006UnPovly1g1mjylcz9tj30k90o90tx.jpg" alt="image" />
+有的硬盘格式为GPT需要把MBR改成GPT才能正常安装（这也是rufus的一个缺陷，不支持双引导）
+<img src="https://wx2.sinaimg.cn/large/006UnPovly1g1mjyzhlbmj30c304pmx3.jpg" alt="image" />
+确定</p>
+
+<h3 id="第5步-开始安装">第5步 开始安装</h3>
+
+<ol>
+<li><p>把U盘插到要装系统的电脑上</p></li>
+
+<li><p>开机时一直连按快捷启动键
+<img src="https://wx2.sinaimg.cn/large/006UnPovly1g1mk6orxtij30es0fcq90.jpg" alt="image" /></p></li>
+
+<li><p>选择U盘启动，就会出现windows的安装界面
+<img src="https://wx2.sinaimg.cn/large/006UnPovly1g1mk93gr06j30h80cxq33.jpg" alt="image" /></p></li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">
+      <a href="https://joyace.cc/">Joyace</a>
+    </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">初次发布</span>
+    <span class="item-content">
+        2019-04-01
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">永久链接</span>
+    <span class="item-content">
+        <a href="https://joyace.cc/post/rufus/">https://joyace.cc/post/rufus/</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/win10/">win10</a>
+          <a href="/tags/%E7%B3%BB%E7%BB%9F/">系统</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/androidp-skip-gapps-boot/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Android P 跳过 Gapps 开机引导</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/rclone-usage/">
+            <span class="next-text nav-default">Rclone 使用指南</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="Joyace.xw@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Joyace" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/joyace.xw" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://joyace.cc/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Joyace</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

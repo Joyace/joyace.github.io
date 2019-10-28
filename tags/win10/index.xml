@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>win10 on Joyace</title>
+    <link>https://joyace.cc/tags/win10/</link>
+    <description>Recent content in win10 on Joyace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 28 Oct 2019 23:57:50 +0800</lastBuildDate>
+    
+	<atom:link href="https://joyace.cc/tags/win10/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>UltraISO 制作启动U盘安装 win10</title>
+      <link>https://joyace.cc/share/ultraiso/</link>
+      <pubDate>Mon, 28 Oct 2019 23:57:50 +0800</pubDate>
+      
+      <guid>https://joyace.cc/share/ultraiso/</guid>
+      <description>软碟通制作U盘启动盘安装 win10 需要的工具： 8G大小的空U盘（如果有数据，请备份一下再格式化） 一台能上网的windows系统电脑 1.下载原版 win10 镜像</description>
+    </item>
+    
+    <item>
+      <title>PowerShell 校验 Hash</title>
+      <link>https://joyace.cc/post/powershell-check-hash/</link>
+      <pubDate>Mon, 06 May 2019 15:54:50 +0800</pubDate>
+      
+      <guid>https://joyace.cc/post/powershell-check-hash/</guid>
+      <description>通常为了保证我们从网上下载的文件的完整性和可靠性，我们把文件下载下来以后都会校验一下MD5值或SHA1值（例如验证下载的Win10 ISO镜像</description>
+    </item>
+    
+    <item>
+      <title>rufus制作U盘启动</title>
+      <link>https://joyace.cc/post/rufus/</link>
+      <pubDate>Mon, 01 Apr 2019 00:57:50 +0800</pubDate>
+      
+      <guid>https://joyace.cc/post/rufus/</guid>
+      <description>&lt;p&gt;这里介绍一下如何安装微软原版win10。&lt;/p&gt;
+
+&lt;p&gt;首先准备个&lt;strong&gt;U盘&lt;/strong&gt; （至少8g），先把U盘里面的重要文件备份一下，制作启动盘会格式化U盘。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

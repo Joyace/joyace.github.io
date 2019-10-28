@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>128M内存的VPS如何安装锐速 - Joyace</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Joyace" /><meta name="description" content="锐速相对来说速度一般比BBR更快，有人还是喜欢使用锐速的。下面讲解一下然后在128MB内存这样超小型的VPS上面安装锐速。
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+<meta name="robots" content="">
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://joyace.cc/post/128m-ram-vps-install-serverspeeder/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.58b28b82.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="128M内存的VPS如何安装锐速" />
+<meta property="og:description" content="锐速相对来说速度一般比BBR更快，有人还是喜欢使用锐速的。下面讲解一下然后在128MB内存这样超小型的VPS上面安装锐速。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://joyace.cc/post/128m-ram-vps-install-serverspeeder/" />
+<meta property="article:published_time" content="2019-05-06T15:32:50&#43;08:00"/>
+<meta property="article:modified_time" content="2019-05-06T15:32:50&#43;08:00"/>
+
+<meta itemprop="name" content="128M内存的VPS如何安装锐速">
+<meta itemprop="description" content="锐速相对来说速度一般比BBR更快，有人还是喜欢使用锐速的。下面讲解一下然后在128MB内存这样超小型的VPS上面安装锐速。">
+
+
+<meta itemprop="datePublished" content="2019-05-06T15:32:50&#43;08:00" />
+<meta itemprop="dateModified" content="2019-05-06T15:32:50&#43;08:00" />
+<meta itemprop="wordCount" content="610">
+
+
+
+<meta itemprop="keywords" content="锐速,vps," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="128M内存的VPS如何安装锐速"/>
+<meta name="twitter:description" content="锐速相对来说速度一般比BBR更快，有人还是喜欢使用锐速的。下面讲解一下然后在128MB内存这样超小型的VPS上面安装锐速。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Joyace</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/share/">
+        <li class="mobile-menu-item">分享</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/%E5%85%B3%E4%BA%8E/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Joyace</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/share/">分享</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">128M内存的VPS如何安装锐速</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-06 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"> 折腾记录 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#一-重装系统-可选">一、重装系统（可选）</a></li>
+<li><a href="#二-内核参数优化">二、内核参数优化</a></li>
+<li><a href="#三-安装锐速">三、安装锐速</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>锐速相对来说速度一般比BBR更快，有人还是喜欢使用锐速的。下面讲解一下然后在128MB内存这样超小型的VPS上面安装锐速。</p>
+
+<h2 id="一-重装系统-可选">一、重装系统（可选）</h2>
+
+<p>使用一键脚本重装系统为Debian7 32位。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">wget --no-check-certificate -qO InstallNET.sh &#39;https://moeclub.org/attachment/LinuxShell/InstallNET.sh&#39; &amp;&amp; chmod a+x InstallNET.sh
+bash InstallNET.sh -d 7 -v 32 -a</pre></td></tr></table>
+</div>
+</div>
+<p>登陆SSH默认密码为：Vicer，可以使用passwd root修改密码。</p>
+
+<p>该系统会默认设置你内存2倍大小的SWAP。</p>
+
+<h2 id="二-内核参数优化">二、内核参数优化</h2>
+
+<p>编辑文件limits.conf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">vi /etc/security/limits.conf</pre></td></tr></table>
+</div>
+</div>
+<p>在最后添加两行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">* soft nofile 51200
+* hard nofile 51200</pre></td></tr></table>
+</div>
+</div>
+<p>编辑profile文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">vi /etc/profile</pre></td></tr></table>
+</div>
+</div>
+<p>在最后添加一行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">ulimit -SHn 51200</pre></td></tr></table>
+</div>
+</div>
+<p>修改后重启生效。</p>
+
+<p>修改sysctl.conf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">vi /etc/sysctl.conf</pre></td></tr></table>
+</div>
+</div>
+<p>在最后添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">fs.file-max = 51200
+net.core.rmem_max = 67108864
+net.core.wmem_max = 67108864
+net.core.rmem_default = 65536
+net.core.wmem_default = 65536
+net.core.netdev_max_backlog = 4096
+net.core.somaxconn = 4096
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_tw_recycle = 0
+net.ipv4.tcp_fin_timeout = 30
+net.ipv4.tcp_keepalive_time = 1200
+net.ipv4.ip_local_port_range = 10000 65000
+net.ipv4.tcp_max_syn_backlog = 4096
+net.ipv4.tcp_max_tw_buckets = 5000
+net.ipv4.tcp_fastopen = 3
+net.ipv4.tcp_rmem = 4096 87380 67108864
+net.ipv4.tcp_wmem = 4096 65536 67108864
+net.ipv4.tcp_mtu_probing = 1
+net.ipv4.tcp_congestion_control = hybla
+vm.min_free_kbytes = 5120
+vm.overcommit_memory = 1
+vm.panic_on_oom = 1
+vm.swappiness = 80
+vm.vfs_cache_pressure = 200</pre></td></tr></table>
+</div>
+</div>
+<p>令其生效：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sysctl -p</pre></td></tr></table>
+</div>
+</div>
+<h2 id="三-安装锐速">三、安装锐速</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">wget --no-check-certificate -O appex.sh https://raw.githubusercontent.com/0oVicero0/serverSpeeder_Install/master/appex.sh &amp;&amp; chmod +x appex.sh &amp;&amp; bash appex.sh install</pre></td></tr></table>
+</div>
+</div>
+<p>优化锐速参数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">vi /appex/etc/config</pre></td></tr></table>
+</div>
+</div>
+<p>将以下内容修改为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">initialCwndWan=&#34;65&#34;
+shaperEnable=&#34;0&#34;
+SmBurstMS=&#34;20&#34;
+shortRttMS=&#34;90&#34;
+l2wQLimit=&#34;128 1024&#34;
+w2lQLimit=&#34;128 1024&#34;</pre></td></tr></table>
+</div>
+</div>
+<p>重启锐速</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">/appex/bin/serverSpeeder.sh restart</pre></td></tr></table>
+</div>
+</div>
+<p>基本上经过这一番设置以后，锐速就不那么容易杀进程了。我没有做大流量的压力测试，但应该还是可靠的。关键点是使用32位的系统和设置锐速的内存占用。当然，为了确保ss等的稳定运行，最好还是使用libev版，添加守护脚本，监控进程。因为某些原因，这里就不放教程了，大家可以自行google。</p>
+
+<p>我自己一般还是使用BBR的多点，还没有遇到杀进程的情况，放心。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">
+      <a href="https://joyace.cc/">Joyace</a>
+    </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">初次发布</span>
+    <span class="item-content">
+        2019-05-06
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">永久链接</span>
+    <span class="item-content">
+        <a href="https://joyace.cc/post/128m-ram-vps-install-serverspeeder/">https://joyace.cc/post/128m-ram-vps-install-serverspeeder/</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E9%94%90%E9%80%9F/">锐速</a>
+          <a href="/tags/vps/">vps</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/powershell-check-hash/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">PowerShell 校验 Hash</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/androidp-skip-gapps-boot/">
+            <span class="next-text nav-default">Android P 跳过 Gapps 开机引导</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="Joyace.xw@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Joyace" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/joyace.xw" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://joyace.cc/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Joyace</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Caddy 一键安装与配置 - Joyace</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Joyace" /><meta name="description" content="Caddy 一键安装及简单配置
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+<meta name="robots" content="">
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://joyace.cc/post/caddy-install/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.58b28b82.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Caddy 一键安装与配置" />
+<meta property="og:description" content="Caddy 一键安装及简单配置" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://joyace.cc/post/caddy-install/" />
+<meta property="article:published_time" content="2019-01-25T23:57:50&#43;08:00"/>
+<meta property="article:modified_time" content="2019-01-25T23:57:50&#43;08:00"/>
+
+<meta itemprop="name" content="Caddy 一键安装与配置">
+<meta itemprop="description" content="Caddy 一键安装及简单配置">
+
+
+<meta itemprop="datePublished" content="2019-01-25T23:57:50&#43;08:00" />
+<meta itemprop="dateModified" content="2019-01-25T23:57:50&#43;08:00" />
+<meta itemprop="wordCount" content="676">
+
+
+
+<meta itemprop="keywords" content="caddy," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Caddy 一键安装与配置"/>
+<meta name="twitter:description" content="Caddy 一键安装及简单配置"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Joyace</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/share/">
+        <li class="mobile-menu-item">分享</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/%E5%85%B3%E4%BA%8E/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Joyace</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/share/">分享</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Caddy 一键安装与配置</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-01-25 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"> 折腾记录 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#一键安装">一键安装</a></li>
+<li><a href="#caddy-使用说明">Caddy 使用说明</a></li>
+<li><a href="#配置示范">配置示范</a>
+<ul>
+<li>
+<ul>
+<li><a href="#filebrowser">filebrowser</a></li>
+<li><a href="#typecho">typecho</a></li>
+<li><a href="#wordpress">wordpress</a></li>
+<li><a href="#chevereto">Chevereto</a></li>
+<li><a href="#nextcloud">Nextcloud</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Caddy 一键安装及简单配置</p>
+
+<h2 id="一键安装">一键安装</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget -N --no-check-certificate https://raw.githubusercontent.com/Joyace/sh/master/caddy_install.sh <span class="o">&amp;&amp;</span> chmod +x caddy_install.sh <span class="o">&amp;&amp;</span> bash caddy_install.sh</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="caddy-使用说明">Caddy 使用说明</h2>
+
+<p>启动：<code>/etc/init.d/caddy start</code></p>
+
+<p>停止：<code>/etc/init.d/caddy stop</code></p>
+
+<p>重启：<code>/etc/init.d/caddy restart</code></p>
+
+<p>查看状态：<code>/etc/init.d/caddy status</code></p>
+
+<p>查看Caddy启动日志： <code>tail -f /tmp/caddy.log</code></p>
+
+<p>安装目录：<code>/usr/local/caddy</code></p>
+
+<p>Caddy配置文件位置：<code>/usr/local/caddy/Caddyfile</code></p>
+
+<p>Caddy自动申请SSL证书位置：<code>/.caddy/acme/acme-v01.api.letsencrypt.org/sites/xxx.xxx(域名)/</code></p>
+
+<h2 id="配置示范">配置示范</h2>
+
+<h4 id="filebrowser">filebrowser</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">http://xxx.com {
+ timeouts none
+ redir https://xxx.com{url}
+}
+xxx.com {
+ root /usr/local/caddy/www/file
+ timeouts none
+ tls xxx@mail.com
+ gzip
+ filebrowser / /usr/local/caddy/www/file {
+  database /usr/local/caddy/filebrowser.db
+ }
+}</pre></td></tr></table>
+</div>
+</div>
+<h4 id="typecho">typecho</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">apt-get install php7.0-cgi php7.0-fpm php7.0-curl php7.0-gd php7.0-mbstring php7.0-xml php7.0-sqlite3 sqlite3 -y</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">http://xxx.com {
+    redir https://xxx.com{url}
+    }
+    https://xxx.com {
+    gzip
+    tls xxx@mail.com
+    root /typecho
+    fastcgi / /run/php/php7.0-fpm.sock php
+    rewrite {
+        if {path} not_match ^\/admin
+        to {path} {path}/ /index.php?{query}
+     }
+}</pre></td></tr></table>
+</div>
+</div>
+<h4 id="wordpress">wordpress</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">www.moerats.com {
+  redir https://xxx.com{url}
+}
+moerats.com {
+  root /wordpress
+  tls xxx@mail.com
+  gzip
+  fastcgi / /run/php/php7.0-fpm.sock php
+  rewrite {
+    if {path} not_match ^\/wp-admin
+    to {path} {path}/ /index.php?{query}
+  }
+}</pre></td></tr></table>
+</div>
+</div>
+<h4 id="chevereto">Chevereto</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">example.com {
+    root /var/www/chevereto
+    fastcgi / /var/run/php/php7.0-fpm.sock php
+​
+    rewrite {
+        to {path} {path}/ /index.php?{query}
+    }
+}</pre></td></tr></table>
+</div>
+</div>
+<h4 id="nextcloud">Nextcloud</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">my-nextcloud-site.com {
+​
+    root   /var/www/nextcloud
+    log    /var/log/nextcloud_access.log
+    errors /var/log/nextcloud_errors.log
+​
+    fastcgi / 127.0.0.1:9000 php {
+        env PATH /bin
+    }
+    
+    # checks for images
+        rewrite {
+            ext .svg .gif .png .html .ttf .woff .ico .jpg .jpeg
+        r ^/index.php/(.+)$
+        to /{1} /index.php?{1}
+    }
+​
+    rewrite {
+        r ^/index.php/.*$
+        to /index.php?{query}
+    }
+​
+    # client support (e.g. os x calendar / contacts)
+    redir /.well-known/carddav /remote.php/carddav 301
+    redir /.well-known/caldav /remote.php/caldav 301
+​
+    # remove trailing / as it causes errors with php-fpm
+    rewrite {
+        r ^/remote.php/(webdav|caldav|carddav|dav)(\/?)(\/?)$
+        to /remote.php/{1}
+    }
+​
+    rewrite {
+        r ^/remote.php/(webdav|caldav|carddav|dav)/(.+?)(\/?)(\/?)$
+        to /remote.php/{1}/{2}
+    }
+​
+    rewrite {
+        r ^/public.php/(dav|webdav|caldav|carddav)(\/?)(\/?)$
+        to /public.php/{1}
+    }
+​
+    rewrite {
+        r ^/public.php/(dav|webdav|caldav|carddav)/(.+)(\/?)(\/?)$
+        to /public.php/{1}/{2}
+    }
+​
+    # .htaccess / data / config / ... shouldn&#39;t be accessible from outside
+    status 403 {
+        /.htaccess
+        /data
+        /config
+        /db_structure
+        /.xml
+        /README
+    }
+​
+    header / Strict-Transport-Security &#34;max-age=31536000;&#34;
+​
+}</pre></td></tr></table>
+</div>
+</div>
+<p><em>此配置在nextcloud 14上有些问题，至今我无法解决，如果有解决方法请联系我更新。</em></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">
+      <a href="https://joyace.cc/">Joyace</a>
+    </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">初次发布</span>
+    <span class="item-content">
+        2019-01-25
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">永久链接</span>
+    <span class="item-content">
+        <a href="https://joyace.cc/post/caddy-install/">https://joyace.cc/post/caddy-install/</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/caddy/">caddy</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/rclone-usage/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Rclone 使用指南</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/debian-install-php7.0-sqlite3/">
+            <span class="next-text nav-default">Debian 安装 php7.0 与 sqlite3</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="Joyace.xw@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Joyace" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/joyace.xw" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://joyace.cc/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Joyace</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

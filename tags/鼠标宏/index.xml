@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>鼠标宏 on Joyace</title>
+    <link>https://joyace.cc/tags/%E9%BC%A0%E6%A0%87%E5%AE%8F/</link>
+    <description>Recent content in 鼠标宏 on Joyace</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 10 Jun 2019 23:57:50 +0800</lastBuildDate>
+    
+	<atom:link href="https://joyace.cc/tags/%E9%BC%A0%E6%A0%87%E5%AE%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PUBG 压枪宏</title>
+      <link>https://joyace.cc/share/soldier76/</link>
+      <pubDate>Mon, 10 Jun 2019 23:57:50 +0800</pubDate>
+      
+      <guid>https://joyace.cc/share/soldier76/</guid>
+      <description>PUBG - Logitech鼠标宏自动压枪脚本</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Rclone 使用指南 - Joyace</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Joyace" /><meta name="description" content="Rclone是一款的命令行工具，支持在不同对象存储、网盘间同步、上传、下载数据。
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+<meta name="robots" content="">
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://joyace.cc/post/rclone-usage/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.58b28b82.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Rclone 使用指南" />
+<meta property="og:description" content="Rclone是一款的命令行工具，支持在不同对象存储、网盘间同步、上传、下载数据。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://joyace.cc/post/rclone-usage/" />
+<meta property="article:published_time" content="2019-02-28T23:57:50&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-28T23:57:50&#43;08:00"/>
+
+<meta itemprop="name" content="Rclone 使用指南">
+<meta itemprop="description" content="Rclone是一款的命令行工具，支持在不同对象存储、网盘间同步、上传、下载数据。">
+
+
+<meta itemprop="datePublished" content="2019-02-28T23:57:50&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-28T23:57:50&#43;08:00" />
+<meta itemprop="wordCount" content="799">
+
+
+
+<meta itemprop="keywords" content="rclone," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rclone 使用指南"/>
+<meta name="twitter:description" content="Rclone是一款的命令行工具，支持在不同对象存储、网盘间同步、上传、下载数据。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Joyace</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/share/">
+        <li class="mobile-menu-item">分享</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/%E5%85%B3%E4%BA%8E/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Joyace</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/share/">分享</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Rclone 使用指南</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-02-28 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"> 折腾记录 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#linux下安装">Linux下安装</a></li>
+<li><a href="#macos下安装">MacOS下安装</a></li>
+<li><a href="#操作命令">操作命令</a></li>
+<li><a href="#备份文件夹">备份文件夹</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Rclone是一款的命令行工具，支持在不同对象存储、网盘间同步、上传、下载数据。</p>
+
+<p>支持的主流对象存储：</p>
+
+<ul>
+<li>Google Drive</li>
+<li>Amazon S3</li>
+<li>Openstack Swift / Rackspace cloud files / Memset Memstore</li>
+<li>Dropbox</li>
+<li>Google Cloud Storage</li>
+<li>Amazon Drive</li>
+<li>Microsoft One Drive</li>
+<li>Hubic</li>
+<li>Backblaze B2</li>
+<li>Yandex Disk</li>
+<li>The local filesystem</li>
+</ul>
+
+<h4 id="linux下安装">Linux下安装</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl -O http://downloads.rclone.org/rclone-current-linux-amd64.zip
+unzip rclone-current-linux-amd64.zip
+<span class="nb">cd</span> rclone-*-linux-amd64
+cp rclone /usr/sbin/
+chown root:root /usr/sbin/rclone
+chmod <span class="m">755</span> /usr/sbin/rclone</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="macos下安装">MacOS下安装</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="o">&amp;&amp;</span> curl -O http://downloads.rclone.org/rclone-current-osx-amd64.zip
+unzip -a rclone-current-osx-amd64.zip <span class="o">&amp;&amp;</span> <span class="nb">cd</span> rclone-*-osx-amd64
+sudo mv rclone /usr/local/bin/
+<span class="nb">cd</span> .. <span class="o">&amp;&amp;</span> rm -rf rclone-*-osx-amd64 rclone-current-osx-amd64.zip</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="操作命令">操作命令</h4>
+
+<p>rclone命令的语法格式：
+Syntax: [options] subcommand <parameters> <parameters...></p>
+
+<p>常用的rclone命令有：</p>
+
+<ul>
+<li>rclone config - 以控制会话的形式添加rclone的配置，配置保存在.rclone.conf文件中。</li>
+<li>rclone copy - 将文件从源复制到目的地址，跳过已复制完成的。</li>
+<li>rclone sync - 将源数据同步到目的地址，只更新目的地址的数据。</li>
+<li>rclone move - 将源数据移动到目的地址。</li>
+<li>rclone delete - 删除指定路径下的文件内容。</li>
+<li>rclone purge - 清空指定路径下所有文件数据。</li>
+<li>rclone mkdir - 创建一个新目录。</li>
+<li>rclone rmdir - 删除空目录。</li>
+<li>rclone check - 检查源和目的地址数据是否匹配。</li>
+<li>rclone ls - 列出指定路径下所有的文件以及文件大小和路径。</li>
+<li>rclone lsd - 列出指定路径下所有的目录/容器/桶。</li>
+<li>rclone lsl - 列出指定路径下所有文件以及修改时间、文件大小和路径。</li>
+<li>rclone md5sum - 为指定路径下的所有文件产生一个md5sum文件。</li>
+<li>rclone sha1sum - 为指定路径下的所有文件产生一个sha1sum文件。</li>
+<li>rclone size - 获取指定路径下，文件内容的总大小。.</li>
+<li>rclone version - 查看当前版本。</li>
+<li>rclone cleanup - 清空remote。</li>
+<li>rclone dedupe - 交互式查找重复文件，进行删除/重命名操作。</li>
+</ul>
+
+<h4 id="备份文件夹">备份文件夹</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="c1"># 备份名称，用于标记</span>
+<span class="nv">BACKUP_NAME</span><span class="o">=</span><span class="s2">&#34;blog&#34;</span>
+<span class="c1"># 备份目录，多个请空格分隔</span>
+<span class="nv">BACKUP_SRC</span><span class="o">=</span><span class="s2">&#34;/typecho&#34;</span>
+<span class="c1"># 备份文件临时存放目录，一般不需要更改</span>
+<span class="nv">BACKUP_DIR</span><span class="o">=</span><span class="s2">&#34;/tmp/onebackup&#34;</span>
+<span class="c1"># 备份文件压缩密码确保压缩包的安全</span>
+<span class="nv">BACKUP_FILE_PASSWD</span><span class="o">=</span><span class="s2">&#34;passwd&#34;</span>
+<span class="c1"># rcloneId</span>
+<span class="nv">ID</span><span class="o">=</span><span class="s2">&#34;gd&#34;</span>
+<span class="c1"># rclone 备份目录</span>
+<span class="nv">FD</span><span class="o">=</span><span class="s2">&#34;backup&#34;</span>
+
+<span class="c1">## 备份配置信息 End ##</span>
+
+<span class="c1">## Funs ##</span>
+<span class="nv">NOW</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%Y%m%d%H%M%S&#34;</span><span class="k">)</span> <span class="c1">#精确到秒，统一秒内上传的文件会被覆盖</span>
+
+mkdir -p <span class="nv">$BACKUP_DIR</span>
+
+<span class="c1"># 打包</span>
+<span class="nb">echo</span> <span class="s2">&#34;start tar&#34;</span>
+<span class="nv">BACKUP_FILENAME</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$BACKUP_NAME</span><span class="s2">-backup-</span><span class="nv">$NOW</span><span class="s2">.zip&#34;</span>
+zip -q -r -P <span class="nv">$BACKUP_FILE_PASSWD</span> <span class="nv">$BACKUP_DIR</span>/<span class="nv">$BACKUP_FILENAME</span> <span class="nv">$BACKUP_SRC</span>
+<span class="nb">echo</span> <span class="s2">&#34;tar ok&#34;</span>
+
+<span class="c1"># 上传</span>
+<span class="nb">echo</span> <span class="s2">&#34;start upload&#34;</span>
+rclone copy <span class="nv">$BACKUP_DIR</span>/<span class="nv">$BACKUP_FILENAME</span> <span class="nv">$ID</span>:<span class="nv">$FD</span>
+<span class="nb">echo</span> <span class="s2">&#34;upload ok&#34;</span>
+
+<span class="c1"># 清理备份文件</span>
+rm -rf <span class="nv">$BACKUP_DIR</span>/*
+<span class="nb">echo</span> <span class="s2">&#34;backup clean done&#34;</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 启动</span>
+<span class="c1"># 赋予脚本执行权限</span>
+chmod +x onebackup.sh
+bash onebackup.sh.sh
+
+定时任务
+crontab -e
+<span class="c1"># 每日凌晨2点备份</span>
+<span class="m">0</span> <span class="m">2</span> * * * /bin/bash /root/onebackup.sh</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">
+      <a href="https://joyace.cc/">Joyace</a>
+    </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">初次发布</span>
+    <span class="item-content">
+        2019-02-28
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">永久链接</span>
+    <span class="item-content">
+        <a href="https://joyace.cc/post/rclone-usage/">https://joyace.cc/post/rclone-usage/</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/rclone/">rclone</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/rufus/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">rufus制作U盘启动</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/caddy-install/">
+            <span class="next-text nav-default">Caddy 一键安装与配置</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="Joyace.xw@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Joyace" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/joyace.xw" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://joyace.cc/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Joyace</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
