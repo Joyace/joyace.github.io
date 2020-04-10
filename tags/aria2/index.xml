@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aria2 on Joyace</title>
-    <link>https://joyace.cc/tags/aria2/</link>
+    <link>https://blog.403o.com/tags/aria2/</link>
     <description>Recent content in aria2 on Joyace</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 28 Dec 2018 23:57:50 +0800</lastBuildDate>
     
-	<atom:link href="https://joyace.cc/tags/aria2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.403o.com/tags/aria2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Aria2 一键安装与配置</title>
-      <link>https://joyace.cc/post/aria2-install/</link>
+      <link>https://blog.403o.com/post/aria2-install/</link>
       <pubDate>Fri, 28 Dec 2018 23:57:50 +0800</pubDate>
       
-      <guid>https://joyace.cc/post/aria2-install/</guid>
+      <guid>https://blog.403o.com/post/aria2-install/</guid>
       <description>&lt;p&gt;　　Aria2 是一个轻量级多协议和多源命令行下载实用工具。它支持 HTTP / HTTPS, FTP, SFTP, bt 和 Metalink。通过内置 Aria2 可以操作 json - rpc 和 xml - rpc。对，Aria2 没有 GUI 图形界面，只有粗糙的命令行界面！但这也正是 Aria2 之轻快好省所在。&lt;/p&gt;</description>
     </item>
     

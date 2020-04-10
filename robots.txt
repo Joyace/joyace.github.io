@@ -1,5 +1,5 @@
 User-agent: *
-Sitemap: https://joyace.cc/sitemap.xml
+Sitemap: https://blog.403o.com/sitemap.xml
 
 User-agent: Baiduspider
 Disallow: /
