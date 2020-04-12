@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>合并 CIDR 地址段</title>
+      <link>https://blog.403o.com/post/cidr/</link>
+      <pubDate>Tue, 10 Mar 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://blog.403o.com/post/cidr/</guid>
+      <description>最近由于需要用iptables设置一些过滤规则，也有bind里配置acl的时候有合并地址段的需求。看了下cpan里有个现成的模块，几行代码就</description>
+    </item>
+    
+    <item>
       <title>bbr 原版/魔改/plus/锐速 四合一</title>
       <link>https://blog.403o.com/post/bbr-install/</link>
       <pubDate>Mon, 06 May 2019 16:14:50 +0800</pubDate>
@@ -30,12 +39,12 @@
     </item>
     
     <item>
-      <title>DebianUbuntu 时区和自动校时设置</title>
+      <title>Debian Ubuntu 时区和自动校时设置</title>
       <link>https://blog.403o.com/post/debian-verify-time/</link>
       <pubDate>Mon, 06 May 2019 16:09:50 +0800</pubDate>
       
       <guid>https://blog.403o.com/post/debian-verify-time/</guid>
-      <description>一、设置服务器时区 如果是美国VPS，那么时区要首先设置，不然哪怕再精准的时间也是白搭。 1 2 # 图形化设置时区 dpkg-reconfigure tzdata 二、设置时间同步服务器 方法一：</description>
+      <description>一、设置服务器时区 如果是美国VPS，那么时区要首先设置，不然哪怕再精准的时间也是白搭。 1 2 # 图形化设置时区 dpkg-reconfigure tzdata 二、设置时间同步服务器 另类方法</description>
     </item>
     
     <item>
