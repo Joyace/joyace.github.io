@@ -3,15 +3,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.403o.com/%E5%85%B3%E4%BA%8E/</loc>
+    <loc>https://blog.403o.com/%E5%8F%8B%E9%93%BE/</loc>
     <lastmod>2017-08-28T21:41:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.403o.com/post/domain/</loc>
-    <lastmod>2020-04-11T00:00:00+08:00</lastmod>
+    <loc>https://blog.403o.com/%E5%85%B3%E4%BA%8E/</loc>
+    <lastmod>2017-08-28T21:41:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -192,7 +192,7 @@
   
   <url>
     <loc>https://blog.403o.com/post/</loc>
-    <lastmod>2020-04-11T00:00:00+08:00</lastmod>
+    <lastmod>2020-03-10T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -242,13 +242,6 @@
   <url>
     <loc>https://blog.403o.com/tags/debian/</loc>
     <lastmod>2019-05-06T16:09:50+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.403o.com/tags/domain/</loc>
-    <lastmod>2020-04-11T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -353,7 +346,7 @@
   
   <url>
     <loc>https://blog.403o.com/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2020-04-11T00:00:00+08:00</lastmod>
+    <lastmod>2020-03-10T00:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
