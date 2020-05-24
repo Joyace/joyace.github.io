@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>图片 on Joyace</title>
-    <link>https://blog.403o.com/tags/%E5%9B%BE%E7%89%87/</link>
+    <link>https://joyace.cc/tags/%E5%9B%BE%E7%89%87/</link>
     <description>Recent content in 图片 on Joyace</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 10 Feb 2019 23:57:50 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.403o.com/tags/%E5%9B%BE%E7%89%87/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joyace.cc/tags/%E5%9B%BE%E7%89%87/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Imagine 开源免费的全平台图片压缩软件</title>
-      <link>https://blog.403o.com/share/imagine/</link>
+      <link>https://joyace.cc/share/imagine/</link>
       <pubDate>Sun, 10 Feb 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.403o.com/share/imagine/</guid>
+      <guid>https://joyace.cc/share/imagine/</guid>
       <description>Imagine 开源免费的全平台图片压缩软件 支持本地批量压缩，手动调节 支持预览 支持格式WBEP PNG JPEG</description>
     </item>
     

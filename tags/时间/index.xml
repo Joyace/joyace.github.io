@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>时间 on Joyace</title>
-    <link>https://blog.403o.com/tags/%E6%97%B6%E9%97%B4/</link>
+    <link>https://joyace.cc/tags/%E6%97%B6%E9%97%B4/</link>
     <description>Recent content in 时间 on Joyace</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 06 May 2019 16:09:50 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.403o.com/tags/%E6%97%B6%E9%97%B4/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joyace.cc/tags/%E6%97%B6%E9%97%B4/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Debian Ubuntu 时区和自动校时设置</title>
-      <link>https://blog.403o.com/post/debian-verify-time/</link>
+      <link>https://joyace.cc/post/debian-verify-time/</link>
       <pubDate>Mon, 06 May 2019 16:09:50 +0800</pubDate>
       
-      <guid>https://blog.403o.com/post/debian-verify-time/</guid>
+      <guid>https://joyace.cc/post/debian-verify-time/</guid>
       <description>一、设置服务器时区 如果是美国VPS，那么时区要首先设置，不然哪怕再精准的时间也是白搭。 1 2 # 图形化设置时区 dpkg-reconfigure tzdata 二、设置时间同步服务器 另类方法</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sql on Joyace</title>
-    <link>https://blog.403o.com/tags/sql/</link>
+    <link>https://joyace.cc/tags/sql/</link>
     <description>Recent content in sql on Joyace</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 10 Aug 2019 23:57:50 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.403o.com/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joyace.cc/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>DBeaver 开源数据库连接工具</title>
-      <link>https://blog.403o.com/share/dbeaver/</link>
+      <link>https://joyace.cc/share/dbeaver/</link>
       <pubDate>Sat, 10 Aug 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.403o.com/share/dbeaver/</guid>
+      <guid>https://joyace.cc/share/dbeaver/</guid>
       <description>DBeaver是一款使用JAVA开发的，跨平台的，开源的，通用数据库工具，支持绝大多数数据库，如常见的Sqlite，mysql，mariad</description>
     </item>
     
