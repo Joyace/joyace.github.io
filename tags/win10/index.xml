@@ -6,10 +6,19 @@
     <description>Recent content in win10 on Joyace</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 28 Oct 2019 23:57:50 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2020 15:20:50 +0800</lastBuildDate>
     
 	<atom:link href="https://joyace.cc/tags/win10/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用 ventoy 神器制作启动盘安装系统</title>
+      <link>https://joyace.cc/post/ventoy/</link>
+      <pubDate>Tue, 21 Jul 2020 15:20:50 +0800</pubDate>
+      
+      <guid>https://joyace.cc/post/ventoy/</guid>
+      <description>&lt;p&gt;Ventoy是一个制作可启动U盘的开源工具。有了Ventoy你就无需反复地格式化U盘，你只需要把ISO文件拷贝到U盘里面就可以启动了，无需其他操作。 你可以一次性拷贝很多个不同类型的ISO文件，在启动时Ventoy会显示一个菜单来选择。 无差异支持Legacy BIOS和UEFI模式。目前已经测试了各类超过300+ 个ISO文件(列表). 同时提出了&amp;rdquo;Ventoy Compatible&amp;rdquo;的概念，若被支持则理论上可以启动任何ISO文件.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>UltraISO 制作启动U盘安装 win10</title>
