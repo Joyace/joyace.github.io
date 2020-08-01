@@ -6,10 +6,24 @@
     <description>Recent content in Posts on Joyace</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 21 Jul 2020 15:20:50 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 11:57:50 +0800</lastBuildDate>
     
 	<atom:link href="https://joyace.cc/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VPS流量超过一定数量后自动关机脚本</title>
+      <link>https://joyace.cc/post/safe/</link>
+      <pubDate>Sat, 01 Aug 2020 11:57:50 +0800</pubDate>
+      
+      <guid>https://joyace.cc/post/safe/</guid>
+      <description>&lt;p&gt;本文参考：《AWS Lightsail 流量超出自动关机脚本》（来自GLACIER的博客：bvm.me，似乎已经闭站）&lt;/p&gt;
+
+&lt;p&gt;1.原文是以AWS的Lightsail Debian 8.7作为例子，我在原文的基础上，进行了一些补充，分为以下两部分：&lt;/p&gt;
+
+&lt;p&gt;2.更详细地解释此脚本的代码，如何因应不同的流量计费方式（双向计费方式、单向计费方式、流出流入取最大值的计费方式）
+如何设置开机启动此脚本&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>使用 ventoy 神器制作启动盘安装系统</title>

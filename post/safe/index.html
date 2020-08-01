@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>VPS流量超过一定数量后自动关机脚本 - Joyace</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Joyace" /><meta name="description" content="本文参考：《AWS Lightsail 流量超出自动关机脚本》（来自GLACIER的博客：bvm.me，似乎已经闭站）
+1.原文是以AWS的Lightsail Debian 8.7作为例子，我在原文的基础上，进行了一些补充，分为以下两部分：
+2.更详细地解释此脚本的代码，如何因应不同的流量计费方式（双向计费方式、单向计费方式、流出流入取最大值的计费方式） 如何设置开机启动此脚本
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+<meta name="robots" content="">
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://joyace.cc/post/safe/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.58b28b82.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="VPS流量超过一定数量后自动关机脚本" />
+<meta property="og:description" content="本文参考：《AWS Lightsail 流量超出自动关机脚本》（来自GLACIER的博客：bvm.me，似乎已经闭站）
+
+1.原文是以AWS的Lightsail Debian 8.7作为例子，我在原文的基础上，进行了一些补充，分为以下两部分：
+
+2.更详细地解释此脚本的代码，如何因应不同的流量计费方式（双向计费方式、单向计费方式、流出流入取最大值的计费方式）
+如何设置开机启动此脚本" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://joyace.cc/post/safe/" />
+<meta property="article:published_time" content="2020-08-01T11:57:50&#43;08:00"/>
+<meta property="article:modified_time" content="2020-08-01T11:57:50&#43;08:00"/>
+
+<meta itemprop="name" content="VPS流量超过一定数量后自动关机脚本">
+<meta itemprop="description" content="本文参考：《AWS Lightsail 流量超出自动关机脚本》（来自GLACIER的博客：bvm.me，似乎已经闭站）
+
+1.原文是以AWS的Lightsail Debian 8.7作为例子，我在原文的基础上，进行了一些补充，分为以下两部分：
+
+2.更详细地解释此脚本的代码，如何因应不同的流量计费方式（双向计费方式、单向计费方式、流出流入取最大值的计费方式）
+如何设置开机启动此脚本">
+
+
+<meta itemprop="datePublished" content="2020-08-01T11:57:50&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-01T11:57:50&#43;08:00" />
+<meta itemprop="wordCount" content="1348">
+
+
+
+<meta itemprop="keywords" content="vps," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VPS流量超过一定数量后自动关机脚本"/>
+<meta name="twitter:description" content="本文参考：《AWS Lightsail 流量超出自动关机脚本》（来自GLACIER的博客：bvm.me，似乎已经闭站）
+
+1.原文是以AWS的Lightsail Debian 8.7作为例子，我在原文的基础上，进行了一些补充，分为以下两部分：
+
+2.更详细地解释此脚本的代码，如何因应不同的流量计费方式（双向计费方式、单向计费方式、流出流入取最大值的计费方式）
+如何设置开机启动此脚本"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Joyace</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/share/">
+        <li class="mobile-menu-item">分享</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/%E5%8F%8B%E9%93%BE/">
+        <li class="mobile-menu-item">友链</li>
+      </a><a href="/%E5%85%B3%E4%BA%8E/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Joyace</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/share/">分享</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/%E5%8F%8B%E9%93%BE/">友链</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/%E5%85%B3%E4%BA%8E/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">VPS流量超过一定数量后自动关机脚本</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-01 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"> 折腾记录 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#双向-流入-流出-计费方式">双向（流入+流出）计费方式</a></li>
+<li><a href="#单向计费方式">单向计费方式</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>本文参考：《AWS Lightsail 流量超出自动关机脚本》（来自GLACIER的博客：bvm.me，似乎已经闭站）</p>
+
+<p>1.原文是以AWS的Lightsail Debian 8.7作为例子，我在原文的基础上，进行了一些补充，分为以下两部分：</p>
+
+<p>2.更详细地解释此脚本的代码，如何因应不同的流量计费方式（双向计费方式、单向计费方式、流出流入取最大值的计费方式）
+如何设置开机启动此脚本</p>
+
+<p>脚本代码</p>
+
+<h2 id="双向-流入-流出-计费方式">双向（流入+流出）计费方式</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/python3
+</span><span class="cp"></span><span class="c1">#coding=utf-8</span>
+import sys,re,time,os
+<span class="nv">maxdata</span> <span class="o">=</span> <span class="m">858993459200</span> <span class="c1">#流量上限，单位是Byte</span>
+<span class="nv">memfilename</span> <span class="o">=</span> <span class="s1">&#39;/root/data.txt&#39;</span>
+<span class="nv">netcard</span> <span class="o">=</span> <span class="s1">&#39;/proc/net/dev&#39;</span>
+def checkfile<span class="o">(</span>filename<span class="o">)</span>:
+    <span class="k">if</span> os.path.isfile<span class="o">(</span>filename<span class="o">)</span>:
+        pass
+    <span class="k">else</span>:
+        <span class="nv">f</span> <span class="o">=</span> open<span class="o">(</span>filename, <span class="s1">&#39;w&#39;</span><span class="o">)</span>
+        f.write<span class="o">(</span><span class="s1">&#39;0&#39;</span><span class="o">)</span>
+        f.close<span class="o">()</span>
+def get_net_data<span class="o">()</span>:
+    <span class="nv">nc</span> <span class="o">=</span> netcard or <span class="s1">&#39;/proc/net/dev&#39;</span>
+    <span class="nv">fd</span> <span class="o">=</span> open<span class="o">(</span>nc, <span class="s2">&#34;r&#34;</span><span class="o">)</span>
+    <span class="nv">netcardstatus</span> <span class="o">=</span> False
+    <span class="k">for</span> line in fd.readlines<span class="o">()</span>:
+        <span class="k">if</span> line.find<span class="o">(</span><span class="s2">&#34;ens3&#34;</span><span class="o">)</span> &gt; <span class="m">0</span>: <span class="c1">#这里的网卡用的是ens3，请根据自己的网卡进行调整，可以通过cat /proc/net/dev查看</span>
+            <span class="nv">netcardstatus</span> <span class="o">=</span> True
+            <span class="nv">field</span> <span class="o">=</span> line.split<span class="o">()</span> <span class="c1">#读取数据</span>
+            <span class="nv">recv</span> <span class="o">=</span> field<span class="o">[</span><span class="m">0</span><span class="o">]</span>.split<span class="o">(</span><span class="s2">&#34;:&#34;</span><span class="o">)[</span><span class="m">1</span><span class="o">]</span>
+            <span class="nv">recv</span> <span class="o">=</span> recv or field<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="c1">#流入流量</span>
+            <span class="nv">send</span> <span class="o">=</span> field<span class="o">[</span><span class="m">9</span><span class="o">]</span> <span class="c1">#流出流量</span>
+    <span class="k">if</span> not netcardstatus:
+        fd.close<span class="o">()</span>
+        print<span class="o">(</span><span class="s2">&#34;Please setup your netcard&#34;</span><span class="o">)</span>
+        sys.exit<span class="o">()</span>
+    fd.close<span class="o">()</span>
+    <span class="k">return</span> <span class="o">(</span>float<span class="o">(</span>recv<span class="o">)</span>, float<span class="o">(</span>send<span class="o">))</span>
+
+def net_loop<span class="o">()</span>:
+    <span class="o">(</span>recv, send<span class="o">)</span> <span class="o">=</span> get_net_data<span class="o">()</span>
+    checkfile<span class="o">(</span>memfilename<span class="o">)</span>
+    <span class="nv">lasttransdaraopen</span> <span class="o">=</span> open<span class="o">(</span>memfilename,<span class="s1">&#39;r&#39;</span><span class="o">)</span>
+    <span class="nv">lasttransdata</span> <span class="o">=</span> lasttransdaraopen.readline<span class="o">()</span>
+    lasttransdaraopen.close<span class="o">()</span>
+    <span class="nv">totaltrans</span> <span class="o">=</span> int<span class="o">(</span>lasttransdata<span class="o">)</span> or <span class="m">0</span>
+    <span class="k">while</span> True:
+        time.sleep<span class="o">(</span><span class="m">3</span><span class="o">)</span>
+        <span class="nv">nowtime</span> <span class="o">=</span> time.strftime<span class="o">(</span><span class="s1">&#39;%d %H:%M&#39;</span>,time.localtime<span class="o">(</span>time.time<span class="o">()))</span>
+        <span class="nv">sec</span> <span class="o">=</span> time.localtime<span class="o">()</span>.tm_sec
+        <span class="k">if</span> <span class="nv">nowtime</span> <span class="o">==</span> <span class="s1">&#39;01 00:00&#39;</span>:
+            <span class="k">if</span> sec &lt; <span class="m">10</span>:
+                <span class="nv">totaltrans</span> <span class="o">=</span> <span class="m">0</span>
+        <span class="o">(</span>new_recv, new_send<span class="o">)</span> <span class="o">=</span> get_net_data<span class="o">()</span>
+        <span class="nv">recvdata</span> <span class="o">=</span> new_recv - recv
+        <span class="nv">recv</span> <span class="o">=</span> new_recv
+        <span class="nv">senddata</span> <span class="o">=</span> new_send - send
+        <span class="nv">send</span> <span class="o">=</span> new_send
+        <span class="nv">totaltrans</span> <span class="o">+=</span> int<span class="o">(</span>recvdata<span class="o">)</span>
+        <span class="nv">totaltrans</span> <span class="o">+=</span> int<span class="o">(</span>senddata<span class="o">)</span>
+        <span class="nv">memw</span> <span class="o">=</span> open<span class="o">(</span>memfilename,<span class="s1">&#39;w&#39;</span><span class="o">)</span>
+        memw.write<span class="o">(</span>str<span class="o">(</span>totaltrans<span class="o">))</span>
+        memw.close<span class="o">()</span>
+        <span class="k">if</span> totaltrans &gt;<span class="o">=</span> maxdata:
+            os.system<span class="o">(</span><span class="s1">&#39;rm -f /root/data.txt &amp;&amp; init 0&#39;</span><span class="o">)</span> <span class="c1">#超出流量，删除记录并关机。</span>
+<span class="k">if</span> <span class="nv">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span>:
+    net_loop<span class="o">()</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="单向计费方式">单向计费方式</h2>
+
+<p>如果是流出流量计费，那么把totaltrans += int(recvdata)去掉即可。
+如果是流入流量计费，那么把totaltrans += int(senddata)去掉即可。
+流入流出取最大值计费方式
+只要流入、流出任何一个超过了最大值，则关机处理，这也是很多人熟知的Vultr的计费方式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/usr/bin/python3
+</span><span class="cp"></span><span class="c1">#coding=utf-8</span>
+import sys,re,time,os
+<span class="nv">maxdata</span> <span class="o">=</span> <span class="m">858993459200</span> <span class="c1">#流量上限，包括流入和流出，单位Byte</span>
+<span class="nv">memfilename</span> <span class="o">=</span> <span class="s1">&#39;/root/data.txt&#39;</span>
+<span class="nv">netcard</span> <span class="o">=</span> <span class="s1">&#39;/proc/net/dev&#39;</span>
+def checkfile<span class="o">(</span>filename<span class="o">)</span>:
+    <span class="k">if</span> os.path.isfile<span class="o">(</span>filename<span class="o">)</span>:
+        pass
+    <span class="k">else</span>:
+        <span class="nv">f</span> <span class="o">=</span> open<span class="o">(</span>filename, <span class="s1">&#39;w&#39;</span><span class="o">)</span>
+        f.write<span class="o">(</span><span class="s1">&#39;0\n0\n&#39;</span><span class="o">)</span>
+        f.close<span class="o">()</span>
+def get_net_data<span class="o">()</span>:
+    <span class="nv">nc</span> <span class="o">=</span> netcard or <span class="s1">&#39;/proc/net/dev&#39;</span>
+    <span class="nv">fd</span> <span class="o">=</span> open<span class="o">(</span>nc, <span class="s2">&#34;r&#34;</span><span class="o">)</span>
+    <span class="nv">netcardstatus</span> <span class="o">=</span> False
+    <span class="k">for</span> line in fd.readlines<span class="o">()</span>:
+        <span class="k">if</span> line.find<span class="o">(</span><span class="s2">&#34;ens3&#34;</span><span class="o">)</span> &gt; <span class="m">0</span>:
+            <span class="nv">netcardstatus</span> <span class="o">=</span> True
+            <span class="nv">field</span> <span class="o">=</span> line.split<span class="o">()</span>
+            <span class="nv">recv</span> <span class="o">=</span> field<span class="o">[</span><span class="m">0</span><span class="o">]</span>.split<span class="o">(</span><span class="s2">&#34;:&#34;</span><span class="o">)[</span><span class="m">1</span><span class="o">]</span>
+            <span class="nv">recv</span> <span class="o">=</span> recv or field<span class="o">[</span><span class="m">1</span><span class="o">]</span>
+            <span class="nv">send</span> <span class="o">=</span> field<span class="o">[</span><span class="m">9</span><span class="o">]</span>
+    <span class="k">if</span> not netcardstatus:
+        fd.close<span class="o">()</span>
+        print<span class="o">(</span><span class="s2">&#34;Please setup your netcard&#34;</span><span class="o">)</span>
+        sys.exit<span class="o">()</span>
+    fd.close<span class="o">()</span>
+    <span class="k">return</span> <span class="o">(</span>float<span class="o">(</span>recv<span class="o">)</span>, float<span class="o">(</span>send<span class="o">))</span>
+
+def net_loop<span class="o">()</span>:
+    <span class="o">(</span>recv, send<span class="o">)</span> <span class="o">=</span> get_net_data<span class="o">()</span>
+    checkfile<span class="o">(</span>memfilename<span class="o">)</span>
+    <span class="nv">lasttransdata</span> <span class="o">=</span> <span class="o">[]</span>
+    with open<span class="o">(</span>memfilename, <span class="s1">&#39;r&#39;</span><span class="o">)</span> as filehandle:
+        <span class="nv">lasttransdata</span> <span class="o">=</span> <span class="o">[</span>data.rstrip<span class="o">()</span> <span class="k">for</span> data in filehandle.readlines<span class="o">()]</span>
+
+    filehandle.close<span class="o">()</span>
+    print<span class="o">(</span>lasttransdata<span class="o">)</span>
+    <span class="nv">totaltrans</span> <span class="o">=</span> lasttransdata or <span class="o">[</span><span class="m">0</span>, <span class="m">0</span><span class="o">]</span>
+    <span class="k">while</span> True:
+        time.sleep<span class="o">(</span><span class="m">3</span><span class="o">)</span>
+        <span class="nv">nowtime</span> <span class="o">=</span> time.strftime<span class="o">(</span><span class="s1">&#39;%d %H:%M&#39;</span>,time.localtime<span class="o">(</span>time.time<span class="o">()))</span>
+        <span class="nv">sec</span> <span class="o">=</span> time.localtime<span class="o">()</span>.tm_sec
+        <span class="k">if</span> <span class="nv">nowtime</span> <span class="o">==</span> <span class="s1">&#39;01 00:00&#39;</span>:
+            <span class="k">if</span> sec &lt; <span class="m">10</span>:
+                <span class="nv">totaltrans</span> <span class="o">=</span> <span class="o">[</span><span class="m">0</span>, <span class="m">0</span><span class="o">]</span>
+        <span class="o">(</span>new_recv, new_send<span class="o">)</span> <span class="o">=</span> get_net_data<span class="o">()</span>
+        <span class="nv">recvdata</span> <span class="o">=</span> new_recv - recv
+        <span class="nv">recv</span> <span class="o">=</span> new_recv
+
+        <span class="nv">senddata</span> <span class="o">=</span> new_send - send
+        <span class="nv">send</span> <span class="o">=</span> new_send
+        totaltrans<span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="o">=</span> str<span class="o">(</span>int<span class="o">(</span>totaltrans<span class="o">[</span><span class="m">0</span><span class="o">])</span> + int<span class="o">(</span>recvdata<span class="o">))</span>
+        totaltrans<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="o">=</span> str<span class="o">(</span>int<span class="o">(</span>totaltrans<span class="o">[</span><span class="m">1</span><span class="o">])</span> + int<span class="o">(</span>senddata<span class="o">))</span>
+        <span class="c1">#写入数据</span>
+        with open<span class="o">(</span>memfilename, <span class="s1">&#39;w&#39;</span><span class="o">)</span> as filehandle:
+            filehandle.writelines<span class="o">(</span><span class="s2">&#34;%s\n&#34;</span> % data <span class="k">for</span> data in totaltrans<span class="o">)</span>
+        filehandle.close<span class="o">()</span>
+        <span class="k">if</span> int<span class="o">(</span>totaltrans<span class="o">[</span><span class="m">0</span><span class="o">])</span> &gt;<span class="o">=</span> maxdata or int<span class="o">(</span>totaltrans<span class="o">[</span><span class="m">1</span><span class="o">])</span> &gt;<span class="o">=</span> maxdata:
+            os.system<span class="o">(</span><span class="s1">&#39;rm -f /root/data.txt &amp;&amp; init 0&#39;</span><span class="o">)</span>
+<span class="k">if</span> <span class="nv">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span>:
+    net_loop<span class="o">()</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>创建方式是创建一个safe.sh（名字随意，取名safe.sh的意思是让你的账单更安全一点而已😀）。</p>
+
+<p>然后根据你主机商的计费方式，选一种复制进去即可。</p>
+
+<p>然后还要输入以下指令，让这个脚本可以被运行。假设我的safe.sh放在/root底下，那么输入：</p>
+
+<p><code>chmod +x /root/safe.sh</code>
+然后输入这个指令，就可以运行脚本了。</p>
+
+<p><code>/root/safe.sh</code>
+放在其他地方应该也是OK的。</p>
+
+<p>开机启动safe.sh脚本
+这里利用的是crontab。非常的简单，输入以下指令：</p>
+
+<p><code>crontab -e</code>
+然后在最后一行加入：</p>
+
+<p><code>@reboot /root/safe.sh</code>
+然后重启一下，你就会发现这个脚本一直在后台运行了。</p>
+
+<p>本人在自己的Vultr主机下测试过，没有大问题。也在upcloud的Ubuntu主机上测试过。不过没有在自然情况下测试过，如果有朋友使用了这个脚本遇到任何问题，也请留言告知我。</p>
+
+<p>非原创，转自：<a href="https://www.chensnotes.com/server-auto-shutdown-script-after-certain-bandwidth-usage.html">https://www.chensnotes.com/server-auto-shutdown-script-after-certain-bandwidth-usage.html</a></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">
+      <a href="https://joyace.cc/">Joyace</a>
+    </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">初次发布</span>
+    <span class="item-content">
+        2020-08-01
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">永久链接</span>
+    <span class="item-content">
+        <a href="https://joyace.cc/post/safe/">https://joyace.cc/post/safe/</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/vps/">vps</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/ventoy/">
+            <span class="next-text nav-default">使用 ventoy 神器制作启动盘安装系统</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="Joyace.xw@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Joyace" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/joyace.xw" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://joyace.cc/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Joyace</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
