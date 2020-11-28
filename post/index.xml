@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Joyace&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Aug 2020 11:57:50 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2020 15:20:50 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.ixxcc.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>博客域名更改为 blog.ixxcc.com</title>
+      <link>https://blog.ixxcc.com/post/blog/</link>
+      <pubDate>Sat, 28 Nov 2020 15:20:50 +0800</pubDate>
+      
+      <guid>https://blog.ixxcc.com/post/blog/</guid>
+      <description>博客域名更改为https://blog.ixxcc.com ,请注意更新书签。</description>
+    </item>
     
     <item>
       <title>VPS流量超过一定数量后自动关机脚本</title>
