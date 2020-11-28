@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gapps on Joyace</title>
-    <link>https://joyace.cc/tags/gapps/</link>
-    <description>Recent content in gapps on Joyace</description>
+    <title>gapps on Joyace&#39;s blog</title>
+    <link>https://blog.ixxcc.com/tags/gapps/</link>
+    <description>Recent content in gapps on Joyace&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 06 May 2019 15:32:50 +0800</lastBuildDate>
     
-	<atom:link href="https://joyace.cc/tags/gapps/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ixxcc.com/tags/gapps/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Android P 跳过 Gapps 开机引导</title>
-      <link>https://joyace.cc/post/androidp-skip-gapps-boot/</link>
+      <link>https://blog.ixxcc.com/post/androidp-skip-gapps-boot/</link>
       <pubDate>Mon, 06 May 2019 15:32:50 +0800</pubDate>
       
-      <guid>https://joyace.cc/post/androidp-skip-gapps-boot/</guid>
+      <guid>https://blog.ixxcc.com/post/androidp-skip-gapps-boot/</guid>
       <description>&lt;p&gt;Android 手机在刷了 Gapps 之后，在开机进入系统时会进入 Gapps 的开机引导（也就是设置 Google 帐号神马的）。但是这需要连 Google 进行验证，于是。。。。。。。。&lt;/p&gt;</description>
     </item>
     

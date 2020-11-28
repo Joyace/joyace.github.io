@@ -1,0 +1,77 @@
+---
+title: "Office 函数记录"
+date: 2020-07-21T15:20:50+08:00
+tags: ["win10"]
+categories: ["折腾记录"]
+---
+记录一下工作中用到的函数与各种技巧。
+<!--more-->
+##1.批量重命名
+
+- 100% 开源 (许可证)
+- 使用简单 (使用说明)
+- 快速 (拷贝文件有多快就有多快)
+- 直接从ISO文件启动，无需解开
+- 无差异支持Legacy + UEFI 模式
+- UEFI 模式支持安全启动 (Secure Boot) (1.0.07版本开始)
+- 支持持久化 (1.0.11版本开始) 说明
+- 支持直接启动WIM文件(Legacy + UEFI) (1.0.12+)
+- 支持MBR和GPT分区格式(1.0.15+)
+- 支持自动安装部署(1.0.09+)
+- 支持超过4GB的ISO文件
+- 保留ISO原始的启动菜单风格(Legacy & UEFI)
+- 支持大部分常见操作系统, 已测试300+ 个ISO文件
+- 不仅仅是启动，而是完整的安装过程
+- ISO文件支持列表模式或目录树模式显示
+- 提出 "Ventoy Compatible" 概念
+- 支持插件扩展
+- 启动过程中支持U盘设置写保护
+- 不影响U盘日常普通使用
+- 版本升级时数据不会丢失
+- 无需跟随操作系统升级而升级Ventoy
+
+# 一、需要准备的工具：
+- 一个至少8G的U盘，如U盘内有重要文件，请先备份好
+- 一台能上网的windows系统电脑（当然如果你是linux系统也可以，具体步骤请看官网）
+
+# 二、制作 ventoy 启动盘
+制作方法很简单。
+### 1.下载 ventoy
+官网下载（国内可能打开比较缓慢）：https://www.ventoy.net/cn/download.html
+
+
+本站分流：https://dl.joyace.cc/system/ventoy
+
+
+百度网盘分流：https://pan.baidu.com/s/17BzIvYmkrnTSh7sgarVuPw 
+提取码：2ghh
+
+**如果下载速度慢，换一个即可**
+
+### 2.制作 ventoy 启动盘
+下载得到安装包文件，例如 ventoy-1.0.00-windows.zip 然后解压出来，运行 `Ventoy2Disk.exe`
+![image](https://www.ventoy.net/static/img/ventoy2disk_cn.png)
+
+如图所示，选择U盘，点击安装即可。
+
+制作完成后,如图
+
+![image](https://www.ventoy.net/static/img/ventoy2disk2_cn.png)
+
+# 三、安装 windows10 系统
+
+### 1.下载 windows10 镜像：
+推荐在[msdn](https://next.itellyou.cn/)下载
+### 2.下载完成后复制镜像文件放在 ventoy 盘中
+
+### 3.开机选择 ventoy 盘启动（新主板建议选择带 uefi 前缀的启动项）
+主板品牌启动项选择按键:
+华硕F8 技嘉F12 微星F11 七彩虹F11 华擎F11 影驰F11
+
+### 4.选择需要启动的iso
+![image](https://www.ventoy.net/static/img/screen/screen_uefi.png)
+
+# 四、安装其他系统
+步骤和第三步相同，具体查看[官网iso支持列表](https://www.ventoy.net/cn/isolist.html)
+
+ventoy 的玩法不只有安装系统，比如你可以把 pe 放在U盘里，选PE的iso就能直接进pe了，非常方便，pe更新了也不需要重新制作，只需要替换iso文件即可

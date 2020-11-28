@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vps on Joyace</title>
-    <link>https://joyace.cc/tags/vps/</link>
-    <description>Recent content in vps on Joyace</description>
+    <title>vps on Joyace&#39;s blog</title>
+    <link>https://blog.ixxcc.com/tags/vps/</link>
+    <description>Recent content in vps on Joyace&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 01 Aug 2020 11:57:50 +0800</lastBuildDate>
     
-	<atom:link href="https://joyace.cc/tags/vps/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ixxcc.com/tags/vps/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>VPS流量超过一定数量后自动关机脚本</title>
-      <link>https://joyace.cc/post/safe/</link>
+      <link>https://blog.ixxcc.com/post/safe/</link>
       <pubDate>Sat, 01 Aug 2020 11:57:50 +0800</pubDate>
       
-      <guid>https://joyace.cc/post/safe/</guid>
+      <guid>https://blog.ixxcc.com/post/safe/</guid>
       <description>&lt;p&gt;本文参考：《AWS Lightsail 流量超出自动关机脚本》（来自GLACIER的博客：bvm.me，似乎已经闭站）&lt;/p&gt;
 
 &lt;p&gt;1.原文是以AWS的Lightsail Debian 8.7作为例子，我在原文的基础上，进行了一些补充，分为以下两部分：&lt;/p&gt;
@@ -27,10 +27,10 @@
     
     <item>
       <title>128M内存的VPS如何安装锐速</title>
-      <link>https://joyace.cc/post/128m-ram-vps-install-serverspeeder/</link>
+      <link>https://blog.ixxcc.com/post/128m-ram-vps-install-serverspeeder/</link>
       <pubDate>Mon, 06 May 2019 15:32:50 +0800</pubDate>
       
-      <guid>https://joyace.cc/post/128m-ram-vps-install-serverspeeder/</guid>
+      <guid>https://blog.ixxcc.com/post/128m-ram-vps-install-serverspeeder/</guid>
       <description>&lt;p&gt;锐速相对来说速度一般比BBR更快，有人还是喜欢使用锐速的。下面讲解一下然后在128MB内存这样超小型的VPS上面安装锐速。&lt;/p&gt;</description>
     </item>
     

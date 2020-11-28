@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>powershell on Joyace</title>
-    <link>https://joyace.cc/tags/powershell/</link>
-    <description>Recent content in powershell on Joyace</description>
+    <title>powershell on Joyace&#39;s blog</title>
+    <link>https://blog.ixxcc.com/tags/powershell/</link>
+    <description>Recent content in powershell on Joyace&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 06 May 2019 15:54:50 +0800</lastBuildDate>
     
-	<atom:link href="https://joyace.cc/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ixxcc.com/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PowerShell 校验 Hash</title>
-      <link>https://joyace.cc/post/powershell-check-hash/</link>
+      <link>https://blog.ixxcc.com/post/powershell-check-hash/</link>
       <pubDate>Mon, 06 May 2019 15:54:50 +0800</pubDate>
       
-      <guid>https://joyace.cc/post/powershell-check-hash/</guid>
+      <guid>https://blog.ixxcc.com/post/powershell-check-hash/</guid>
       <description>通常为了保证我们从网上下载的文件的完整性和可靠性，我们把文件下载下来以后都会校验一下MD5值或SHA1值（例如验证下载的Win10 ISO镜像</description>
     </item>
     
