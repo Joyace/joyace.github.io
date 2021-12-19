@@ -1,5 +1,5 @@
 User-agent: *
-Sitemap: https://blog.ixxcc.com/sitemap.xml
+Sitemap: https://blog.joyace.top/sitemap.xml
 
 User-agent: Baiduspider
 Disallow: /

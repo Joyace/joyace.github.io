@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ip on Joyace&#39;s blog</title>
-    <link>https://blog.ixxcc.com/tags/ip/</link>
+    <link>https://blog.joyace.top/tags/ip/</link>
     <description>Recent content in ip on Joyace&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 10 Mar 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.ixxcc.com/tags/ip/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.joyace.top/tags/ip/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>合并 CIDR 地址段</title>
-      <link>https://blog.ixxcc.com/post/cidr/</link>
+      <link>https://blog.joyace.top/post/cidr/</link>
       <pubDate>Tue, 10 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/cidr/</guid>
+      <guid>https://blog.joyace.top/post/cidr/</guid>
       <description>最近由于需要用iptables设置一些过滤规则，也有bind里配置acl的时候有合并地址段的需求。看了下cpan里有个现成的模块，几行代码就</description>
     </item>
     

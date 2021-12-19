@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>锐速 on Joyace&#39;s blog</title>
-    <link>https://blog.ixxcc.com/tags/%E9%94%90%E9%80%9F/</link>
+    <link>https://blog.joyace.top/tags/%E9%94%90%E9%80%9F/</link>
     <description>Recent content in 锐速 on Joyace&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 06 May 2019 16:14:50 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.ixxcc.com/tags/%E9%94%90%E9%80%9F/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.joyace.top/tags/%E9%94%90%E9%80%9F/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>bbr 原版/魔改/plus/锐速 四合一</title>
-      <link>https://blog.ixxcc.com/post/bbr-install/</link>
+      <link>https://blog.joyace.top/post/bbr-install/</link>
       <pubDate>Mon, 06 May 2019 16:14:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/bbr-install/</guid>
+      <guid>https://blog.joyace.top/post/bbr-install/</guid>
       <description>&lt;p&gt;hostloc一个大佬整合的脚本。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>128M内存的VPS如何安装锐速</title>
-      <link>https://blog.ixxcc.com/post/128m-ram-vps-install-serverspeeder/</link>
+      <link>https://blog.joyace.top/post/128m-ram-vps-install-serverspeeder/</link>
       <pubDate>Mon, 06 May 2019 15:32:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/128m-ram-vps-install-serverspeeder/</guid>
+      <guid>https://blog.joyace.top/post/128m-ram-vps-install-serverspeeder/</guid>
       <description>&lt;p&gt;锐速相对来说速度一般比BBR更快，有人还是喜欢使用锐速的。下面讲解一下然后在128MB内存这样超小型的VPS上面安装锐速。&lt;/p&gt;</description>
     </item>
     

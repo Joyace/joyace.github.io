@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nodejs on Joyace&#39;s blog</title>
-    <link>https://blog.ixxcc.com/tags/nodejs/</link>
+    <link>https://blog.joyace.top/tags/nodejs/</link>
     <description>Recent content in nodejs on Joyace&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 02 Aug 2018 23:57:50 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.ixxcc.com/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.joyace.top/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Debian 7 安装 Nodejs 8</title>
-      <link>https://blog.ixxcc.com/post/debian-install-nodejs/</link>
+      <link>https://blog.joyace.top/post/debian-install-nodejs/</link>
       <pubDate>Thu, 02 Aug 2018 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/debian-install-nodejs/</guid>
+      <guid>https://blog.joyace.top/post/debian-install-nodejs/</guid>
       <description>&lt;p&gt;Debian 7 只能手动配置源安装&lt;/p&gt;</description>
     </item>
     

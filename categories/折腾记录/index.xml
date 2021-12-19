@@ -2,30 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>折腾记录 on Joyace&#39;s blog</title>
-    <link>https://blog.ixxcc.com/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
+    <link>https://blog.joyace.top/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
     <description>Recent content in 折腾记录 on Joyace&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 28 Nov 2020 15:20:50 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 11:57:50 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.ixxcc.com/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.joyace.top/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>博客域名更改为 blog.ixxcc.com</title>
-      <link>https://blog.ixxcc.com/post/blog/</link>
-      <pubDate>Sat, 28 Nov 2020 15:20:50 +0800</pubDate>
-      
-      <guid>https://blog.ixxcc.com/post/blog/</guid>
-      <description>博客域名更改为https://blog.ixxcc.com ,请注意更新书签。</description>
-    </item>
     
     <item>
       <title>VPS流量超过一定数量后自动关机脚本</title>
-      <link>https://blog.ixxcc.com/post/safe/</link>
+      <link>https://blog.joyace.top/post/safe/</link>
       <pubDate>Sat, 01 Aug 2020 11:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/safe/</guid>
+      <guid>https://blog.joyace.top/post/safe/</guid>
       <description>&lt;p&gt;本文参考：《AWS Lightsail 流量超出自动关机脚本》（来自GLACIER的博客：bvm.me，似乎已经闭站）&lt;/p&gt;
 
 &lt;p&gt;1.原文是以AWS的Lightsail Debian 8.7作为例子，我在原文的基础上，进行了一些补充，分为以下两部分：&lt;/p&gt;
@@ -36,73 +27,73 @@
     
     <item>
       <title>使用 ventoy 神器制作启动盘安装系统</title>
-      <link>https://blog.ixxcc.com/post/ventoy/</link>
+      <link>https://blog.joyace.top/post/ventoy/</link>
       <pubDate>Tue, 21 Jul 2020 15:20:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/ventoy/</guid>
+      <guid>https://blog.joyace.top/post/ventoy/</guid>
       <description>&lt;p&gt;Ventoy是一个制作可启动U盘的开源工具。有了Ventoy你就无需反复地格式化U盘，你只需要把ISO文件拷贝到U盘里面就可以启动了，无需其他操作。 你可以一次性拷贝很多个不同类型的ISO文件，在启动时Ventoy会显示一个菜单来选择。 无差异支持Legacy BIOS和UEFI模式。目前已经测试了各类超过300+ 个ISO文件(列表). 同时提出了&amp;rdquo;Ventoy Compatible&amp;rdquo;的概念，若被支持则理论上可以启动任何ISO文件.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>合并 CIDR 地址段</title>
-      <link>https://blog.ixxcc.com/post/cidr/</link>
+      <link>https://blog.joyace.top/post/cidr/</link>
       <pubDate>Tue, 10 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/cidr/</guid>
+      <guid>https://blog.joyace.top/post/cidr/</guid>
       <description>最近由于需要用iptables设置一些过滤规则，也有bind里配置acl的时候有合并地址段的需求。看了下cpan里有个现成的模块，几行代码就</description>
     </item>
     
     <item>
       <title>bbr 原版/魔改/plus/锐速 四合一</title>
-      <link>https://blog.ixxcc.com/post/bbr-install/</link>
+      <link>https://blog.joyace.top/post/bbr-install/</link>
       <pubDate>Mon, 06 May 2019 16:14:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/bbr-install/</guid>
+      <guid>https://blog.joyace.top/post/bbr-install/</guid>
       <description>&lt;p&gt;hostloc一个大佬整合的脚本。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Debian Ubuntu 时区和自动校时设置</title>
-      <link>https://blog.ixxcc.com/post/debian-verify-time/</link>
+      <link>https://blog.joyace.top/post/debian-verify-time/</link>
       <pubDate>Mon, 06 May 2019 16:09:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/debian-verify-time/</guid>
+      <guid>https://blog.joyace.top/post/debian-verify-time/</guid>
       <description>一、设置服务器时区 如果是美国VPS，那么时区要首先设置，不然哪怕再精准的时间也是白搭。 1 2 # 图形化设置时区 dpkg-reconfigure tzdata 二、设置时间同步服务器 另类方法</description>
     </item>
     
     <item>
       <title>PowerShell 校验 Hash</title>
-      <link>https://blog.ixxcc.com/post/powershell-check-hash/</link>
+      <link>https://blog.joyace.top/post/powershell-check-hash/</link>
       <pubDate>Mon, 06 May 2019 15:54:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/powershell-check-hash/</guid>
+      <guid>https://blog.joyace.top/post/powershell-check-hash/</guid>
       <description>通常为了保证我们从网上下载的文件的完整性和可靠性，我们把文件下载下来以后都会校验一下MD5值或SHA1值（例如验证下载的Win10 ISO镜像</description>
     </item>
     
     <item>
       <title>128M内存的VPS如何安装锐速</title>
-      <link>https://blog.ixxcc.com/post/128m-ram-vps-install-serverspeeder/</link>
+      <link>https://blog.joyace.top/post/128m-ram-vps-install-serverspeeder/</link>
       <pubDate>Mon, 06 May 2019 15:32:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/128m-ram-vps-install-serverspeeder/</guid>
+      <guid>https://blog.joyace.top/post/128m-ram-vps-install-serverspeeder/</guid>
       <description>&lt;p&gt;锐速相对来说速度一般比BBR更快，有人还是喜欢使用锐速的。下面讲解一下然后在128MB内存这样超小型的VPS上面安装锐速。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Android P 跳过 Gapps 开机引导</title>
-      <link>https://blog.ixxcc.com/post/androidp-skip-gapps-boot/</link>
+      <link>https://blog.joyace.top/post/androidp-skip-gapps-boot/</link>
       <pubDate>Mon, 06 May 2019 15:32:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/androidp-skip-gapps-boot/</guid>
+      <guid>https://blog.joyace.top/post/androidp-skip-gapps-boot/</guid>
       <description>&lt;p&gt;Android 手机在刷了 Gapps 之后，在开机进入系统时会进入 Gapps 的开机引导（也就是设置 Google 帐号神马的）。但是这需要连 Google 进行验证，于是。。。。。。。。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>rufus制作U盘启动</title>
-      <link>https://blog.ixxcc.com/post/rufus/</link>
+      <link>https://blog.joyace.top/post/rufus/</link>
       <pubDate>Mon, 01 Apr 2019 00:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/rufus/</guid>
+      <guid>https://blog.joyace.top/post/rufus/</guid>
       <description>&lt;p&gt;这里介绍一下如何安装微软原版win10。&lt;/p&gt;
 
 &lt;p&gt;首先准备个&lt;strong&gt;U盘&lt;/strong&gt; （至少8g），先把U盘里面的重要文件备份一下，制作启动盘会格式化U盘。&lt;/p&gt;</description>
@@ -110,64 +101,64 @@
     
     <item>
       <title>Rclone 使用指南</title>
-      <link>https://blog.ixxcc.com/post/rclone-usage/</link>
+      <link>https://blog.joyace.top/post/rclone-usage/</link>
       <pubDate>Thu, 28 Feb 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/rclone-usage/</guid>
+      <guid>https://blog.joyace.top/post/rclone-usage/</guid>
       <description>&lt;p&gt;Rclone是一款的命令行工具，支持在不同对象存储、网盘间同步、上传、下载数据。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Caddy 一键安装与配置</title>
-      <link>https://blog.ixxcc.com/post/caddy-install/</link>
+      <link>https://blog.joyace.top/post/caddy-install/</link>
       <pubDate>Fri, 25 Jan 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/caddy-install/</guid>
+      <guid>https://blog.joyace.top/post/caddy-install/</guid>
       <description>&lt;p&gt;Caddy 一键安装及简单配置&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Debian 安装 php7.0 与 sqlite3</title>
-      <link>https://blog.ixxcc.com/post/debian-install-php7.0-sqlite3/</link>
+      <link>https://blog.joyace.top/post/debian-install-php7.0-sqlite3/</link>
       <pubDate>Fri, 25 Jan 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/debian-install-php7.0-sqlite3/</guid>
+      <guid>https://blog.joyace.top/post/debian-install-php7.0-sqlite3/</guid>
       <description>安装 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 #Debian 8系统 #添加源 echo &amp;#34;deb http://packages.dotdeb.org jessie all&amp;#34; | tee --append /etc/apt/sources.list echo &amp;#34;deb-src http://packages.dotdeb.org jessie all&amp;#34; | tee --append /etc/apt/sources.list #添加key wget --no-check-certificate https://www.dotdeb.org/dotdeb.gpg apt-key add dotdeb.gpg #更新系统 apt-get update -y #安装PH</description>
     </item>
     
     <item>
       <title>2019 年十大热门 BT 站</title>
-      <link>https://blog.ixxcc.com/post/2019-hot-bt/</link>
+      <link>https://blog.joyace.top/post/2019-hot-bt/</link>
       <pubDate>Thu, 10 Jan 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/2019-hot-bt/</guid>
+      <guid>https://blog.joyace.top/post/2019-hot-bt/</guid>
       <description>&lt;p&gt;2019 年初访问量大的BT站有哪些？延续前几年的传统，我们统计发现 YTS 领先了 The Pirate Bay。在经历了动荡的一年后，BT 站排名相对比较稳定。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Aria2 一键安装与配置</title>
-      <link>https://blog.ixxcc.com/post/aria2-install/</link>
+      <link>https://blog.joyace.top/post/aria2-install/</link>
       <pubDate>Fri, 28 Dec 2018 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/aria2-install/</guid>
+      <guid>https://blog.joyace.top/post/aria2-install/</guid>
       <description>&lt;p&gt;　　Aria2 是一个轻量级多协议和多源命令行下载实用工具。它支持 HTTP / HTTPS, FTP, SFTP, bt 和 Metalink。通过内置 Aria2 可以操作 json - rpc 和 xml - rpc。对，Aria2 没有 GUI 图形界面，只有粗糙的命令行界面！但这也正是 Aria2 之轻快好省所在。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Debian 7 安装 Nodejs 8</title>
-      <link>https://blog.ixxcc.com/post/debian-install-nodejs/</link>
+      <link>https://blog.joyace.top/post/debian-install-nodejs/</link>
       <pubDate>Thu, 02 Aug 2018 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/debian-install-nodejs/</guid>
+      <guid>https://blog.joyace.top/post/debian-install-nodejs/</guid>
       <description>&lt;p&gt;Debian 7 只能手动配置源安装&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>利用 iptables 封 SPAM 和 BT</title>
-      <link>https://blog.ixxcc.com/post/iptables-block-spam-bt/</link>
+      <link>https://blog.joyace.top/post/iptables-block-spam-bt/</link>
       <pubDate>Wed, 01 Aug 2018 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/post/iptables-block-spam-bt/</guid>
+      <guid>https://blog.joyace.top/post/iptables-block-spam-bt/</guid>
       <description>&lt;p&gt;不管是VPS上面直接下载BT（磁力链接），还是通过VPN、ss代理迅雷等本地软件下载，对于BT蜜罐来说，记录的都是你VPS的IP。然后版权公司就会根据记录的VPS，IP去联系对应的IDC，递交律师函，说明一下这个IP下载盗版文件涉及侵权，于是IDC就会支付侵权费用，一些IDC会把律师函转发给你然后再封VPS，不过大部分都是二话不说直接封了VPS。
 因为IDC已经支付了侵权费用，所以一般情况下都不会解封的，除非你把这钱交了，不过这还不如再买一个VPS。
 所以做ss代理的VPS，一定要使用这个脚本来做防范，避免被坑。&lt;/p&gt;</description>

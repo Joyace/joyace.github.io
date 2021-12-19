@@ -2,75 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>软件分享 on Joyace&#39;s blog</title>
-    <link>https://blog.ixxcc.com/categories/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</link>
+    <link>https://blog.joyace.top/categories/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</link>
     <description>Recent content in 软件分享 on Joyace&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 28 Oct 2019 23:57:50 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.ixxcc.com/categories/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.joyace.top/categories/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>UltraISO 制作启动U盘安装 win10</title>
-      <link>https://blog.ixxcc.com/share/ultraiso/</link>
+      <link>https://blog.joyace.top/share/ultraiso/</link>
       <pubDate>Mon, 28 Oct 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/share/ultraiso/</guid>
+      <guid>https://blog.joyace.top/share/ultraiso/</guid>
       <description>软碟通制作U盘启动盘安装 win10 需要的工具： 8G大小的空U盘（如果有数据，请备份一下再格式化） 一台能上网的windows系统电脑 1.下载原版 win10 镜像</description>
     </item>
     
     <item>
       <title>DBeaver 开源数据库连接工具</title>
-      <link>https://blog.ixxcc.com/share/dbeaver/</link>
+      <link>https://blog.joyace.top/share/dbeaver/</link>
       <pubDate>Sat, 10 Aug 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/share/dbeaver/</guid>
+      <guid>https://blog.joyace.top/share/dbeaver/</guid>
       <description>DBeaver是一款使用JAVA开发的，跨平台的，开源的，通用数据库工具，支持绝大多数数据库，如常见的Sqlite，mysql，mariad</description>
     </item>
     
     <item>
       <title>PUBG 压枪宏</title>
-      <link>https://blog.ixxcc.com/share/soldier76/</link>
+      <link>https://blog.joyace.top/share/soldier76/</link>
       <pubDate>Mon, 10 Jun 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/share/soldier76/</guid>
+      <guid>https://blog.joyace.top/share/soldier76/</guid>
       <description>PUBG - Logitech鼠标宏自动压枪脚本</description>
     </item>
     
     <item>
       <title>RaiDrive 自建网盘</title>
-      <link>https://blog.ixxcc.com/share/raidrive/</link>
+      <link>https://blog.joyace.top/share/raidrive/</link>
       <pubDate>Sun, 10 Mar 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/share/raidrive/</guid>
+      <guid>https://blog.joyace.top/share/raidrive/</guid>
       <description>RaiDrive 是一款能够将一些网盘映射为本地网络磁盘的免费工具，支持 Google Drive、Google Photos、Dropbox、OneDrive、FTP、S</description>
     </item>
     
     <item>
       <title>Imagine 开源免费的全平台图片压缩软件</title>
-      <link>https://blog.ixxcc.com/share/imagine/</link>
+      <link>https://blog.joyace.top/share/imagine/</link>
       <pubDate>Sun, 10 Feb 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/share/imagine/</guid>
+      <guid>https://blog.joyace.top/share/imagine/</guid>
       <description>Imagine 开源免费的全平台图片压缩软件 支持本地批量压缩，手动调节 支持预览 支持格式WBEP PNG JPEG</description>
     </item>
     
     <item>
       <title>livego 纯 Go 写的直播服务器</title>
-      <link>https://blog.ixxcc.com/share/livego/</link>
+      <link>https://blog.joyace.top/share/livego/</link>
       <pubDate>Thu, 10 Jan 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/share/livego/</guid>
+      <guid>https://blog.joyace.top/share/livego/</guid>
       <description>livego 纯 Go 写的直播服务器。</description>
     </item>
     
     <item>
       <title>you-get 全网视频下载工具</title>
-      <link>https://blog.ixxcc.com/share/you-get/</link>
+      <link>https://blog.joyace.top/share/you-get/</link>
       <pubDate>Mon, 10 Sep 2018 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/share/you-get/</guid>
+      <guid>https://blog.joyace.top/share/you-get/</guid>
       <description>you-get可以下载各种网站的视频，个人感觉比某鼠好用。</description>
     </item>
     

@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Joyace&#39;s blog</title>
-    <link>https://blog.ixxcc.com/categories/</link>
+    <link>https://blog.joyace.top/categories/</link>
     <description>Recent content in Categories on Joyace&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	<atom:link href="https://blog.ixxcc.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.joyace.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>折腾记录</title>
-      <link>https://blog.ixxcc.com/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Sat, 28 Nov 2020 15:20:50 +0800</pubDate>
+      <link>https://blog.joyace.top/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Sat, 01 Aug 2020 11:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://blog.joyace.top/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>软件分享</title>
-      <link>https://blog.ixxcc.com/categories/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</link>
+      <link>https://blog.joyace.top/categories/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</link>
       <pubDate>Mon, 28 Oct 2019 23:57:50 +0800</pubDate>
       
-      <guid>https://blog.ixxcc.com/categories/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</guid>
+      <guid>https://blog.joyace.top/categories/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</guid>
       <description></description>
     </item>
     
